@@ -1,5 +1,6 @@
 package com.codedifferently.coding.level.beginner.problemset03;
 
+
 public class Problem {
 
     /* Problem 21
@@ -17,8 +18,8 @@ public class Problem {
      */
 
     public static Boolean compareLastDigit(int value1, int value2) {
-
-        return null;
+        //using the modulus operator create a variable to store the remainder
+        return value1 == value2 % 10;
     }
 
 
@@ -36,13 +37,17 @@ public class Problem {
      */
 
     public static Integer doubleTheSum(int a, int b) {
-
-        return null;
+        int sum = a + b;
+        if (a == b){
+            return (sum * 2);
+        }
+        return sum;
     }
 
 
     /* Problem 23
-    Tom's favorite number is ten, and he is on the look-out for the value 10 or the sum 10 out of the values given to him.
+    Tom's favorite number is ten, and he is on the look-out for the value 10 or the sum 10 out of
+    the values given to him.
     Tom needs you to confirm if any of the values given have what he is looking for.
 
     Return true if one value is 10 or return true if the sum of both values is 10;
@@ -54,14 +59,15 @@ public class Problem {
      */
 
     public static Boolean lookOut10(int a, int b) {
-
-        return null;
+        return a == 10 || b== 10 || a + b == 10;
     }
 
 
     /* Problem 24
-    Every string needs to begin with "not", in order to do that you need to add "not" to the beginning of a provided string.
-    But if the string already begins with "not" we will leave it alone, no need to have a "not not".
+    Every string needs to begin with "not", in order to do that you need to add "not" to
+    the beginning of a provided string.
+    But if the string already begins with "not" we will leave it alone, no need to have
+    a "not not".
 
     Return a new string where "not" has been added to the front.
 
@@ -74,15 +80,17 @@ public class Problem {
      */
 
     public static String beginWithNot(String not) {
-
-        return null;
+        if (not.startsWith("not")) {
+            return not;
+        }
+        return "not " + not;
     }
 
 
      /* Problem 25
-       The most popular number today is 3. We need the first 3 characters of a string, and we need to make
-       3 copies of those 3 characters. The front of a string is considered those 3 characters. The front can
-       be less than 3, just need to provide whatever is there.
+       The most popular number today is 3. We need the first 3 characters of a string,
+       and we need to make 3 copies of those 3 characters. The front of a string is considered
+       those 3 characters. The front can be less than 3, just need to provide whatever is there.
 
        Return a new string which is 3 copies of the front of the string.
 
@@ -93,8 +101,8 @@ public class Problem {
      */
 
     public static String popular3(String front) {
-
-        return null;
+        String first3 = front.substring(0,3);
+        return first3+first3+first3;
     }
 
 
@@ -111,8 +119,8 @@ public class Problem {
      */
 
     public static String double22(String word) {
-
-        return null;
+        String first2 = word.substring(0,2);
+        return first2+word+first2;
     }
 
 
@@ -127,8 +135,7 @@ public class Problem {
      */
 
     public static Boolean range1020(int a, int b) {
-
-        return null;
+        return (a >= 10 && a <= 20) || (b >= 10 && b <= 20);
     }
 
 
@@ -146,8 +153,15 @@ public class Problem {
      */
 
     public static String deleteDel(String del) {
-
-        return null;
+        if (del.length() < 4) {
+            return del;
+        }
+        String substring = del.substring(1, 4); // dont include 4 index or after
+        if (substring.equals("del")) {
+            return (del.replace("del", ""));
+        } else {
+            return del;
+        }
     }
 
 
@@ -163,8 +177,11 @@ public class Problem {
      */
 
     public static Integer maxNumber(int a, int b, int c) {
-
-        return null;
+        if (a >= b && a >= c){
+            return a;
+        }else if (b >= a && b >= c){
+            return b;
+        }return c;
     }
 
 
@@ -182,8 +199,11 @@ public class Problem {
      */
 
     public static Integer larger1020(int a, int b) {
-
-        return null;
+        if (((a >= 10 && a <= 20) || (b >= 10 && b <= 20)) && (a > b)){
+            return a;
+        }else if (((a >= 10 && a <= 20) || (b >= 10 && b <= 20)) && (b > a)){
+            return b;
+        }return 0;
     }
 
 
@@ -203,7 +223,17 @@ public class Problem {
      */
 
     public static String goingUp(String hill) {
+//        String last3 = hill.substring(hill.length()-3);
+//        String last3Upper = last3.toUpperCase();
+//        if (hill.length()<= 2){
+//            return hill.toUpperCase();
+//        }
+//        return (hill.replaceAll(last3, last3Upper));
 
-        return null;
+        if (hill.length()<=2){
+            return hill.toUpperCase();
+        }return hill.replaceAll(hill.substring(hill.length()-3), hill.substring(hill.length()-3).toUpperCase());
     }
+
 }
+
